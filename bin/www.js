@@ -1,3 +1,4 @@
+import "dotenv/config.js"
 // module dependencies
 import { app } from '../server.js'
 import http from 'http'
