@@ -5,4 +5,7 @@ const router = Router()
 // GET localhost:3000/users
 router.get('/', flightsCtrl.index)
 router.get('/new', flightsCtrl.new)
-export { router }
+
+export { 
+  router 
+}
