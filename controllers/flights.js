@@ -8,21 +8,17 @@ function newFlight(req, res) {
 
 function create(req, res) {
   console.log(req.body)
-  // req.body.nowShowing = !!req.body.nowShowing
-  // if (req.body.cast) {
-  //   req.body.cast = req.body.cast.split(', ')
-  // }
-  // for (let key in req.body) {
-  //   if (req.body[key] === '') delete req.body[key]
-  // }
-  // Flight.create(req.body)
-  // .then(movie => {
-  //   res.redirect('/movies')
-  // })
-  // .catch(err => {
-  //   console.log(err)
-  //   res.redirect('/movies/new')
-  // })
+  for (let key in req.body) {
+    if (req.body[key] === '') delete req.body[key]
+  }
+  Flight.create(req.body)
+  .then(flight => {
+    res.redirect('/flights')
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/flights/new')
+  })
 }
 
 export{
