@@ -6,9 +6,9 @@ const Schema = mongoose.Schema
 const flightSchema = new Schema({
   airline: {type: String, enum: ['American', 'Southwest', 'United']},
   airport: {type: String, enum: ['AUS', 'DFW', 'DEN', 'LAX', 'SAN'], default: 'DEN'},
-  flightNo: {type: Number, min: 10, max: 9999},
+  flightNo: {type: Number, min: 10, max: 9999, required: true},
   departs: {
-    type: Number, 
+    type: Date, 
     default: function() {
       let dt = new Date();
       dt.setTime(dt.getTime()+dt.getTimezoneOffset()*60*1000);

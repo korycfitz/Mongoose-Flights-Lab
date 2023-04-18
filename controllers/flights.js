@@ -7,7 +7,6 @@ function newFlight(req, res) {
 }
 
 function create(req, res) {
-  console.log(req.body)
   for (let key in req.body) {
     if (req.body[key] === '') delete req.body[key]
   }
@@ -21,7 +20,36 @@ function create(req, res) {
   })
 }
 
+function index(req, res) {
+  Flight.find({})
+  .then(flights => {
+    res.render('flights/index', {
+      flights: flights,
+      title: 'All Flights'
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/flights/new')
+  })
+}
+
+function show(req, res) {
+  Flight.findById(req.params.flightId)
+  .then(flight => {
+    res.render('flights/show', { 
+      title: 'Flight Details', 
+      flight: flight
+    })    
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/")
+  })
+}
 export{
   newFlight as new,
   create,
+  index,
+  show,
 }
