@@ -6,6 +6,8 @@ import createError from 'http-errors'
 
 import logger from 'morgan'
 // Connect to the database with Mongoose
+import methodOverride from 'method-override'
+
 import './config/database.js'
 // import routers
 import { router as indexRouter } from './routes/index.js'
@@ -17,6 +19,8 @@ const app = express()
 // view engine setup
 app.set('view engine', 'ejs')
 
+// Mount it along with your other middleware, ABOVE the routes
+app.use(methodOverride('_method'))
 // basic middleware
 app.use(logger('dev'))
 app.use(express.json())
