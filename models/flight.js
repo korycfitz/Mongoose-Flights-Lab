@@ -10,15 +10,12 @@ const flightSchema = new Schema({
   departs: {
     type: Date, 
     default: function() {
-      let dt = new Date();
-      dt.setTime(dt.getTime()+dt.getTimezoneOffset()*60*1000);
-      let offset = -300; //Timezone offset for EST in minutes.
-      let estDate = new Date(dt.getTime() + offset*60*1000);
-      return estDate //Gives date in est. Need to add 1 year
+      const today = new Date();
+      today.setFullYear(today.getFullYear() + 1);
+      return today;
     }
   },
 }, {
-  //going to need for the data: 1 year from the date that it is created 
   timestamps: true,
 })
 
