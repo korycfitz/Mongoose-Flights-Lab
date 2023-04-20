@@ -6,7 +6,13 @@
 	<h1><%= title %></h1>
   <p>Please first ensure that the Meal is not in the dropdown
     <select>
+      <% const allMeals = [] %>
       <% meals.forEach(function(meal) { %>
+        <% if (!allMeals.includes(meal)) { %>
+        <% allMeals.push(meal) %>
+        <% } %>
+      <% }) %>
+      <% allMeals.forEach(function(meal) { %>
         <option><%= meal.name %></option>
       <% }) %>
     </select>

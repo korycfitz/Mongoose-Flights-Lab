@@ -36,6 +36,7 @@ function index(req, res) {
 
 function show(req, res) {
   Flight.findById(req.params.flightId)
+  .populate('meals')
   .then(flight => {
     res.render('flights/show', { 
       title: 'Flight Details', 
