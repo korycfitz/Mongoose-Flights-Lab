@@ -21,6 +21,19 @@
     <div>departs: </div>
     <div><%= flight.departs %></div>
   </section>
+
+  <h2>Reviews</h2>
+  <form 
+    id="add-ticket-form"
+    action="/flights/<%= flight._id %>/tickets"
+    method="POST"
+  >
+  <label for="seat-input">Seat:</label>
+  <input type="text" name="seat" id="seat-input">
+  <label for="price-input">Price:</label>
+  <input type="text" name="price" id="price-input">
+  <button type="submit">Add Ticket</button>
+  </form>
 </main>
   
 <%- include('../partials/footer') %>
