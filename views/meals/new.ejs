@@ -8,11 +8,7 @@
     <select>
       <% const allMeals = [] %>
       <% meals.forEach(function(meal) { %>
-        <% if (!allMeals.includes(meal)) { %>
         <% allMeals.push(meal) %>
-        <% } %>
-      <% }) %>
-      <% allMeals.forEach(function(meal) { %>
         <option><%= meal.name %></option>
       <% }) %>
     </select>
