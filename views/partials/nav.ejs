@@ -3,6 +3,12 @@
   <nav>
 		<i class="fas fa-film fa-2x"></i>
     <a 
+    href="/meals/new"
+    class=<%= title === 'Add Meal' ? 'active' : '' %>
+    >
+      ADD MEAL
+  </a>
+    <a 
       href="/flights/new" class=<%= title === 'Add Flight' ? 'active' : '' %>
     >
       ADD FLIGHT
@@ -10,6 +16,6 @@
     <a 
       href="/flights" class=<%= title === 'All Flights' ? 'active' : '' %>
     >
-      All Flights
+      ALL FLIGHTS
     </a>
   </nav>
