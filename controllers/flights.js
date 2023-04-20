@@ -118,7 +118,8 @@ function createTicket(req, res) {
 function addToMeals(req, res) {
   Flight.findById(req.params.flightId)
   .then(flight => {
-    flight.meals.push(req.body.mealId)
+    if (!flight.meals.includes(req.body.mealId)) { flight.meals.push(req.body.mealId)
+    }
     flight.save()
 		.then(() => {
 		  res.redirect(`/flights/${flight._id}`)
